@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2023 at 02:46 PM
+-- Generation Time: Nov 09, 2023 at 05:36 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -126,7 +126,6 @@ CREATE TABLE `lesson_video` (
   `lesson_video_number` int(11) NOT NULL,
   `content_source` varchar(255) NOT NULL,
   `lesson_video_link` varchar(255) DEFAULT NULL,
-  `lesson_video_transcription` text DEFAULT NULL,
   `lesson_video_date_creation` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -134,10 +133,11 @@ CREATE TABLE `lesson_video` (
 -- Dumping data for table `lesson_video`
 --
 
-INSERT INTO `lesson_video` (`lesson_video_id`, `course_id`, `lesson_video_title`, `lesson_video_number`, `content_source`, `lesson_video_link`, `lesson_video_transcription`, `lesson_video_date_creation`) VALUES
-(1, 1, 'IS Lesson Video 1 - Internet Safety Tips for Your Online Security', 1, 'video_url', 'https://youtu.be/aO858HyFbKI?si=X0Jmi0Qpbs6ZxSmq', '<p>Sample Transcription here</p>', '2023-11-05'),
-(2, 1, 'IS Lesson Video 2 - How to Create Strong and Secure Passwords', 2, 'video_url', 'https://youtu.be/aEmF3Iylvr4?si=lO6vJLTfRPm-1GTF', '<p>Sample Transcriptions here.</p>', '2023-11-05'),
-(3, 1, 'IS Lesson Video 3 - Teach students to recognize phishing and scams', 3, 'video_url', 'https://www.youtube.com/watch?v=R12_y2BhKbE', '<p>Sample transcriptions here</p>', '2023-11-05');
+INSERT INTO `lesson_video` (`lesson_video_id`, `course_id`, `lesson_video_title`, `lesson_video_number`, `content_source`, `lesson_video_link`, `lesson_video_date_creation`) VALUES
+(1, 1, 'IS Lesson Video 1 - Internet Safety Tips for Your Online Security', 1, 'video_url', 'https://youtu.be/aO858HyFbKI?si=X0Jmi0Qpbs6ZxSmq', '2023-11-05'),
+(2, 1, 'IS Lesson Video 2 - How to Create Strong and Secure Passwords', 2, 'video_url', 'https://youtu.be/aEmF3Iylvr4?si=lO6vJLTfRPm-1GTF', '2023-11-05'),
+(3, 1, 'IS Lesson Video 3 - Teach students to recognize phishing and scams', 3, 'video_url', 'https://www.youtube.com/watch?v=R12_y2BhKbE', '2023-11-05'),
+(4, 1, 'Lesson 1', 1, 'video_url', 'https://youtu.be/R12_y2BhKbE?si=IW14Dq1CvKHE4x28', '2023-11-10');
 
 -- --------------------------------------------------------
 
@@ -376,7 +376,7 @@ ALTER TABLE `lesson_reading`
 -- AUTO_INCREMENT for table `lesson_video`
 --
 ALTER TABLE `lesson_video`
-  MODIFY `lesson_video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `lesson_video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `quiz_details`
