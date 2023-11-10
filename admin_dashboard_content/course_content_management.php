@@ -563,13 +563,6 @@
                         <label for="lesson_video_link">Lesson Video File (Local)</label>
                             <input type="file" class="form-control" id="lesson_video_link" name="lesson_video_link">
                     </div>
-
-                    <div class="form-group">
-                        <label for="lesson_video_transcription">Lesson Video Transcription</label>
-                        <div id="lesson-video-transcription-editor"></div>
-                        <input type="hidden" id="lesson_video_transcription" name="lesson_video_transcription">
-                    </div>
-
                 </form>
             </div>
             <div class="modal-footer">
@@ -1219,7 +1212,6 @@ $j("#saveEditCourse").click(function () {
             var courseSelector = $j('#course_selector_for_video').val();
             var lessonTitle = $j.trim($j('#lesson_video_title').val());
             var lessonVideoNumber = $j('#lesson_video_number').val();
-            var lessonContent = transcriptionQuill.root.innerHTML;
 
             // Additional validations for video-specific fields
             if ($j('#content_source').val() === 'video_url') {
@@ -1257,8 +1249,6 @@ $j("#saveEditCourse").click(function () {
 
                 // If all validations pass, proceed with AJAX submission
                 var formData = new FormData($('#lessonVideoForm')[0]);
-                
-                formData.append('lesson_video_transcription', lessonContent);
 
                 $j.ajax({
                     type: 'POST',
