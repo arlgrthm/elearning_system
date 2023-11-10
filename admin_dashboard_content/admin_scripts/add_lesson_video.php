@@ -9,8 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lessonVideoNumber = $_POST["lesson_video_number"];
     $contentSource = $_POST["content_source"];
     $lessonVideoLink = isset($_POST["lesson_video_link"]) ? $_POST["lesson_video_link"] : "";
-    $lessonVideoTranscription = $_POST["lesson_video_transcription"];
-
     // Initialize an array to store error messages
     $validationErrors = array();
 
@@ -42,9 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lessonVideoLink = mysqli_real_escape_string($conn, $lessonVideoLink);
 
         // Insert the lesson video into the database with transcription
-        $sql = "INSERT INTO lesson_video (course_id, lesson_video_title, lesson_video_number, content_source, lesson_video_link, lesson_video_transcription, lesson_video_date_creation) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+        $sql = "INSERT INTO lesson_video (course_id, lesson_video_title, lesson_video_number, content_source, lesson_video_link, lesson_video_date_creation) VALUES (?, ?, ?, ?, ?, NOW())";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("isssss", $course_id, $lessonTitle, $lessonVideoNumber, $contentSource, $lessonVideoLink, $lessonVideoTranscription); // Bind the transcription
+        $stmt->bind_param("issss", $course_id, $lessonTitle, $lessonVideoNumber, $contentSource, $lessonVideoLink); // Bind the transcription
 
         if ($stmt->execute()) {
             $response = [
